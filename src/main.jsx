@@ -37,19 +37,6 @@ function EnTete() {
   );
 }
 
-function Ondes({ arbre = false }) {
-  return (
-    <div className={arbre ? 'ondes ondes-arbre' : 'ondes'} aria-hidden="true">
-      <div className="relief">
-        {Array.from({ length: 18 }, (_, index) => (
-          <span key={index} style={{ '--rang': index }} />
-        ))}
-      </div>
-      {arbre && <Arbre className="arbre-principal" />}
-    </div>
-  );
-}
-
 function RendezVous() {
   return (
     <section className="contact" id="rendez-vous" aria-labelledby="titre-contact">
@@ -80,23 +67,28 @@ function Accueil() {
               <a className="lien-texte" href="/accompagnements/">Voir les accompagnements</a>
             </div>
           </div>
-          <div className="visuel-accueil">
-            <img
-              className="photo-sentier"
-              src="/images/sentier-boise.webp"
-              alt=""
-              width="1200"
-              height="900"
-              fetchPriority="high"
-            />
-            <div className="embleme"><Ondes arbre /></div>
-          </div>
+          <img
+            className="photo-sentier"
+            src="/images/sentier-boise.webp"
+            alt=""
+            width="1200"
+            height="900"
+            fetchPriority="high"
+          />
         </div>
       </section>
-      <section className="decouvrir" aria-labelledby="titre-decouvrir">
-        <div className="largeur decouvrir-grille">
-          <h2 id="titre-decouvrir">Comment je vous accompagne</h2>
+      <section className="approche" aria-labelledby="titre-decouvrir">
+        <div className="largeur grille-approche">
+          <img
+            className="photo-approche"
+            src="/images/anastasia-profil.webp"
+            alt="Anastasia Kothé assise, près d’une lampe allumée"
+            width="660"
+            height="880"
+            loading="lazy"
+          />
           <div>
+            <h2 id="titre-decouvrir">Comment je vous accompagne</h2>
             <p>{approche}</p>
             <a className="lien-texte" href="/a-propos/">Faire connaissance avec Anastasia</a>
           </div>
@@ -113,8 +105,11 @@ function Accompagnements() {
     <>
       <section className="largeur page-interieure" aria-labelledby="titre-accompagnements">
         <header className="introduction-page">
-          <h1 id="titre-accompagnements">Les accompagnements</h1>
-          <p className="introduction">{introduction}</p>
+          <div>
+            <h1 id="titre-accompagnements">Les accompagnements</h1>
+            <p className="introduction">{introduction}</p>
+          </div>
+          <img className="photo-feuillage" src="/images/feuillage-automne.webp" alt="" width="880" height="660" />
         </header>
         <div className="prestations">
           {prestations.map(({ titre, description }) => (
@@ -126,7 +121,7 @@ function Accompagnements() {
         </div>
         <p className="note">L’hypnose peut s’inscrire en complément d’un suivi médical. Un professionnel de santé reste votre interlocuteur pour tout symptôme persistant.</p>
       </section>
-      <section className="decouvrir" aria-labelledby="titre-stress">
+      <section className="stress" aria-labelledby="titre-stress">
         <div className="largeur grille-stress">
           <div>
             <h2 id="titre-stress">Quand le stress s’installe au quotidien</h2>
@@ -144,7 +139,7 @@ function APropos() {
   const { photo } = praticienne;
 
   return (
-    <section className="page-interieure">
+    <section className="page-interieure page-parcours">
       <div className="largeur interieur-grille">
         <div>
           <h1>Je suis <em>{praticienne.nom}.</em></h1>
@@ -152,11 +147,7 @@ function APropos() {
           <h2 className="titre-parcours">Mon parcours et ma pratique</h2>
           {parcours.map((paragraphe) => <p key={paragraphe}>{paragraphe}</p>)}
         </div>
-        {photo ? (
-          <div className="cadre-portrait">
-            <img className="portrait" {...photo} />
-          </div>
-        ) : <Ondes arbre />}
+        <img className="portrait" {...photo} />
       </div>
     </section>
   );
@@ -176,7 +167,7 @@ function Site() {
       </main>
       <footer className="pied">
         <div className="largeur pied-interieur">
-          <Marque />
+          <a className="signature-pied" href="/">{praticienne.nom}</a>
           <nav aria-label="Navigation de pied de page"><LiensNavigation /></nav>
         </div>
       </footer>
