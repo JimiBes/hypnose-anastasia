@@ -32,15 +32,15 @@ p { line-height: 1.65; margin: 0 0 1rem; }
 .marque { display: inline-flex; align-items: center; gap: clamp(.6rem, 1.3vw, 1rem); text-decoration: none; color: var(--encre); font-family: var(--serif); font-size: clamp(1.6rem, 3vw, 2.22rem); line-height: 1.06; }
 .marque small { display: block; margin-top: .32rem; font-family: "Segoe UI", system-ui, sans-serif; font-size: .94rem; color: var(--secondaire); }
 .symbole { display: block; flex: none; width: clamp(3.65rem, 5.5vw, 4.65rem); height: auto; mix-blend-mode: multiply; }
-nav { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem clamp(.9rem, 3vw, 2.4rem); }
-nav a { padding-block: .6rem; text-decoration: none; font-size: .95rem; }
-nav a:hover, nav a[aria-current="page"] { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .38rem; text-decoration-color: var(--argile); }
+.navigation-site { display: flex; flex-wrap: wrap; align-items: center; gap: .45rem clamp(.5rem, 1vw, .85rem); }
+.navigation-site .bouton, .header-contact { white-space: nowrap; }
+.navigation-site .bouton[aria-current="page"] { background: var(--encre); color: #fff; }
 
 .hero {
   background: linear-gradient(115deg, #f6e6d4, #f1d8bc);
   padding-block: clamp(2.4rem, 5.4vw, 4.8rem);
 }
-.hero-grille, .interieur-grille { display: grid; grid-template-columns: 1.12fr 1fr; align-items: center; gap: clamp(1.8rem, 5vw, 5rem); }
+.hero-grille, .parcours-grille { display: grid; grid-template-columns: 1.12fr 1fr; align-items: center; gap: clamp(1.8rem, 5vw, 5rem); }
 .hero-grille { grid-template-columns: 1fr 1.06fr; }
 .hero-texte { padding-block: 1rem; }
 h1, h2 { color: var(--encre); font-family: var(--serif); font-weight: 400; margin: 0 0 1rem; line-height: 1.06; }
@@ -100,8 +100,45 @@ h2 { font-size: clamp(2rem, 3.8vw, 3.5rem); letter-spacing: -.037em; }
   justify-self: end;
   max-width: 340px;
 }
-.page-parcours { background: var(--peche); }
-.page-parcours .interieur-grille > div > p { max-width: 52ch; }
+.page-parcours {
+  background: linear-gradient(115deg, #f7eadb, var(--peche));
+  padding-block: clamp(2.5rem, 5vw, 4.5rem);
+}
+.page-parcours .introduction { max-width: 52ch; }
+.formation-parcours {
+  max-width: 34rem;
+  background: var(--papier);
+  border: 1px solid var(--ligne);
+  border-inline-start: .24rem solid var(--argile);
+  border-radius: .65rem 1.75rem 1.75rem .65rem;
+  padding: clamp(1rem, 2vw, 1.5rem);
+}
+.formation-parcours h2, .pratique-bloc h3 {
+  color: var(--encre);
+  font-family: var(--serif);
+  font-size: clamp(1.35rem, 2.5vw, 1.8rem);
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0 0 .55rem;
+}
+.formation-parcours p, .pratique-bloc p { margin: 0; }
+.pratique h2 { margin-bottom: clamp(1rem, 3vw, 1.65rem); }
+.pratique-grille {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(.85rem, 2.5vw, 1.5rem);
+}
+.pratique-bloc {
+  background: #f4e7d2;
+  border: 1px solid #e7d6bd;
+  border-radius: 1.25rem 1.25rem 2.5rem 1.25rem;
+  padding: clamp(1.1rem, 3vw, 2rem);
+}
+.pratique-bloc + .pratique-bloc {
+  background: #e8ecdf;
+  border-color: #d4ddca;
+  border-radius: 1.25rem 2.5rem 1.25rem 1.25rem;
+}
 .prestations { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(.8rem, 2vw, 1.35rem); margin-block: clamp(1.8rem, 4vw, 3.2rem) 1.4rem; }
 .prestation {
   background: #f5e9d5;
@@ -145,7 +182,8 @@ h2 { font-size: clamp(2rem, 3.8vw, 3.5rem); letter-spacing: -.037em; }
   align-items: center;
   gap: clamp(1.25rem, 5vw, 4rem);
 }
-.cabinet h2 { max-width: 12ch; margin-bottom: 0; }
+.cabinet h2 { max-width: 12ch; }
+.cabinet p { max-width: 34ch; margin-bottom: .65rem; }
 .photo-cabinet {
   aspect-ratio: 1.56;
   object-position: center 62%;
@@ -160,9 +198,9 @@ h2 { font-size: clamp(2rem, 3.8vw, 3.5rem); letter-spacing: -.037em; }
 .contact address { font-style: normal; line-height: 1.55; }
 .pied { background: var(--papier); padding-block: 1.3rem; color: var(--secondaire); font-size: .95rem; }
 
-@media (max-width: 900px) {
+@media (max-width: 960px) {
   .en-tete-interieur { gap: .65rem 1rem; }
-  .en-tete-interieur nav { gap: .25rem .9rem; }
+  .navigation-site .bouton { padding: .55rem .75rem; font-size: .9rem; }
   .header-contact { display: none; }
 }
 
@@ -172,7 +210,9 @@ h2 { font-size: clamp(2rem, 3.8vw, 3.5rem); letter-spacing: -.037em; }
 
 @media (max-width: 640px) {
   .en-tete-interieur { align-items: flex-start; flex-direction: column; gap: .45rem; padding-block: .75rem .45rem; }
-  .hero-grille, .interieur-grille, .grille-approche, .introduction-page, .prestations, .grille-texte, .cabinet-grille { grid-template-columns: 1fr; }
+  .navigation-site { gap: .4rem; }
+  .navigation-site .bouton { display: inline-flex; align-items: center; min-height: 42px; padding-inline: .4rem; }
+  .hero-grille, .parcours-grille, .pratique-grille, .grille-approche, .introduction-page, .prestations, .grille-texte, .cabinet-grille { grid-template-columns: 1fr; }
   .cabinet h2 { max-width: none; }
   .photo-cabinet { aspect-ratio: 1.4; }
   .hero-texte { padding-block: 0; }

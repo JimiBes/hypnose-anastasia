@@ -36,14 +36,21 @@ export const contenu = {
     ],
   },
   aPropos: {
-    introduction: 'Je m’intéresse à l’hypnose depuis l’âge de 15 ans. Au fil de mes études et de ma formation, cette curiosité a pris une place de plus en plus importante dans mon parcours.',
+    introduction: 'Je m’intéresse à l’hypnose depuis l’âge de 15 ans. Avec le temps, cette curiosité est devenue une vocation : accompagner les personnes qui souhaitent faire évoluer quelque chose dans leur vie.',
     parcours: {
-      diplomes: 'Après avoir obtenu mon diplôme en psychologie à la faculté de Samara, j’ai voulu approfondir ma pratique de l’hypnose. J’ai suivi une formation diplômante en hypnose ericksonienne. L’accompagnement est aujourd’hui devenu ma vocation.',
+      diplomes: 'J’ai obtenu mon diplôme en psychologie à la faculté de Samara, puis j’ai suivi une formation diplômante en hypnose ericksonienne pour approfondir cette pratique.',
       pratique: [
-        'Avant de vous proposer une technique, je prends le temps de comprendre ce que vous traversez. Vous pouvez parler de ce qui vous amène avec vos propres mots, dans un espace d’écoute sans jugement.',
-        'Je choisis les techniques d’hypnose en fonction de votre personnalité et de ce que vous souhaitez aborder. Au fil des échanges, vous pouvez me dire ce qui vous convient pour que nous ajustions ensemble la façon de travailler.',
+        {
+          titre: 'Prendre le temps d’écouter',
+          texte: 'Avant de vous proposer une technique, je prends le temps de comprendre ce que vous traversez. Vous pouvez parler de ce qui vous amène avec vos propres mots, dans un espace d’écoute sans jugement.',
+        },
+        {
+          titre: 'Adapter la séance à chacun',
+          texte: 'Je choisis les techniques d’hypnose en fonction de votre personnalité et de ce que vous souhaitez aborder. Au fil des échanges, vous pouvez me dire ce qui vous convient pour que nous ajustions ensemble la façon de travailler.',
+        },
       ],
     },
+    cabinet: 'C’est ici que je vous reçois pour les séances. J’ai aménagé la pièce comme un salon, avec des plantes et de la lumière naturelle, pour que vous puissiez vous installer confortablement.',
   },
 };
 

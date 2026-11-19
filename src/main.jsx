@@ -24,9 +24,16 @@ function EnTete() {
     <header className="en-tete">
       <div className="largeur en-tete-interieur">
         <Marque />
-        <nav aria-label="Navigation principale">
+        <nav className="navigation-site" aria-label="Navigation principale">
           {navigation.map(({ id, href, label }) => (
-            <a key={id} href={href} aria-current={page === id ? 'page' : undefined}>{label}</a>
+            <a
+              className="bouton bouton-secondaire"
+              key={id}
+              href={href}
+              aria-current={page === id ? 'page' : undefined}
+            >
+              {label}
+            </a>
           ))}
         </nav>
         <a className="bouton bouton-secondaire header-contact" href="#rendez-vous">Rendez-vous</a>
@@ -132,32 +139,44 @@ function Accompagnements() {
 }
 
 function APropos() {
-  const { introduction, parcours } = contenu.aPropos;
+  const { introduction, parcours, cabinet } = contenu.aPropos;
   const { photo } = praticienne;
 
   return (
     <>
       <section className="page-interieure page-parcours">
-        <div className="largeur interieur-grille">
+        <div className="largeur parcours-grille">
           <div>
             <h1>Mon <span className="accent-titre">parcours</span></h1>
             <p className="introduction">{introduction}</p>
-            <p>{parcours.diplomes}</p>
+            <div className="formation-parcours">
+              <h2>De la psychologie à l’hypnose</h2>
+              <p>{parcours.diplomes}</p>
+            </div>
           </div>
           <img className="portrait" {...photo} />
         </div>
       </section>
-      <section className="approche" aria-labelledby="titre-pratique">
-        <div className="largeur grille-texte">
+      <section className="approche pratique" aria-labelledby="titre-pratique">
+        <div className="largeur">
           <h2 id="titre-pratique">Ma façon de travailler</h2>
-          <div>
-            {parcours.pratique.map((paragraphe) => <p key={paragraphe}>{paragraphe}</p>)}
+          <div className="pratique-grille">
+            {parcours.pratique.map(({ titre, texte }) => (
+              <article className="pratique-bloc" key={titre}>
+                <h3>{titre}</h3>
+                <p>{texte}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
       <section className="cabinet" aria-labelledby="titre-cabinet">
         <div className="largeur cabinet-grille">
-          <h2 id="titre-cabinet">Le cabinet à Montauban</h2>
+          <div>
+            <h2 id="titre-cabinet">Le cabinet à Montauban</h2>
+            <p>{cabinet}</p>
+            <a className="lien-texte" href="#rendez-vous">Voir les coordonnées</a>
+          </div>
           <img
             className="photo-cabinet"
             src="/images/cabinet-anastasia.webp"
