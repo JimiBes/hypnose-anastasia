@@ -1,0 +1,22 @@
+{
+  "name": "hypnose-anastasia",
+  "version": "1.0.0",
+  "description": "Site vitrine d’Anastasia, hypnothérapeute",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "type": "module",
+  "dependencies": {
+    "react": "19.2.0",
+    "react-dom": "19.2.0"
+  },
+  "devDependencies": {
+    "vite": "7.3.1"
+  },
+  "private": true,
+  "engines": {
+    "node": "^22.12.0 || >=24.0.0"
+  }
+}

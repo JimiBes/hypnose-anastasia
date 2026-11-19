@@ -1,0 +1,87 @@
+:root {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  color: #264d4b;
+  background: #fbfcf8;
+  font-synthesis: none;
+  --encre: #214c4b;
+  --secondaire: #3d5d58;
+  --papier: #fbfcf8;
+  --sauge: #e8eedf;
+  --ligne: #cad8cd;
+  --serif: Georgia, "Times New Roman", serif;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+#root { min-height: 100vh; display: flex; flex-direction: column; }
+main { flex: 1; }
+a { color: inherit; }
+a:focus-visible { outline: 2px solid #2c6c63; outline-offset: 5px; }
+main:focus { outline: none; }
+p { line-height: 1.65; margin: 0 0 1rem; }
+
+.largeur { width: min(1160px, calc(100% - clamp(2rem, 9vw, 8rem))); margin-inline: auto; }
+.evitement { position: absolute; left: 1rem; top: 1rem; z-index: 5; padding: .75rem; background: white; transform: translateY(-200%); }
+.evitement:focus { transform: none; }
+
+.en-tete { border-bottom: 1px solid var(--ligne); }
+.en-tete-interieur, .pied-interieur { display: flex; align-items: center; justify-content: space-between; gap: 1rem 2rem; min-height: 86px; }
+.marque { display: inline-flex; align-items: center; gap: .7rem; text-decoration: none; color: var(--encre); font-family: var(--serif); font-size: clamp(1.2rem, 2vw, 1.47rem); line-height: 1.12; }
+.marque small { display: block; margin-top: .25rem; font-family: "Segoe UI", system-ui, sans-serif; font-size: .875rem; color: var(--secondaire); }
+.symbole { display: block; width: 2.8rem; height: auto; mix-blend-mode: multiply; }
+nav { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem clamp(.9rem, 3vw, 2.4rem); }
+nav a { padding-block: .6rem; text-decoration: none; font-size: .95rem; }
+nav a:hover, nav a[aria-current="page"] { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .38rem; }
+
+.hero { padding-block: clamp(2.6rem, 6vw, 5.1rem); overflow: hidden; }
+.hero-grille, .interieur-grille { display: grid; grid-template-columns: 1.12fr 1fr; align-items: center; gap: clamp(1.8rem, 5vw, 5rem); }
+.hero-texte { padding-block: 1rem; }
+.surtitre { text-transform: uppercase; letter-spacing: .13em; font-size: .875rem; font-weight: 650; color: var(--secondaire); margin-bottom: 1.3rem; }
+h1, h2 { color: var(--encre); font-family: var(--serif); font-weight: 400; margin: 0 0 1rem; line-height: 1.06; }
+h1 { font-size: clamp(2.65rem, 6vw, 5.8rem); letter-spacing: -.055em; overflow-wrap: anywhere; }
+h1 em { color: #476d56; font-weight: 400; }
+h2 { font-size: clamp(2rem, 3.8vw, 3.5rem); letter-spacing: -.037em; }
+.introduction { max-width: 42ch; color: var(--secondaire); font-size: clamp(1.04rem, 1.55vw, 1.19rem); margin-block: 1.4rem 1.8rem; }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1.35rem; }
+.bouton { display: inline-block; padding: .85rem 1.2rem; border: 1px solid var(--encre); border-radius: 100vw; background: var(--encre); color: #fff; text-decoration: none; line-height: 1.35; font-weight: 600; }
+.bouton:hover { background: #37645d; }
+.bouton-secondaire { color: var(--encre); background: transparent; }
+.bouton-secondaire:hover { background: var(--sauge); }
+.lien-texte { display: inline-block; font-weight: 600; text-underline-offset: .36rem; text-decoration-thickness: 1px; padding-block: .35rem; }
+.lien-texte:hover { color: #37645d; }
+
+.ondes { position: relative; isolation: isolate; overflow: hidden; width: 100%; aspect-ratio: 1.12; min-width: 0; border-radius: 48% 43% 48% 38% / 44% 41% 56% 47%; background: radial-gradient(ellipse at 45% 36%, #fafcf2 0%, #e1ebce 39%, #c8dcb9 76%, #a7c4a9 100%); }
+.relief { position: absolute; inset: 0; transform: rotate(-23deg) translate(5%, 3%); }
+.relief span { position: absolute; inset: calc((-13 + var(--rang) * 2.35) * 1%) calc((-23 + var(--rang) * 3.24) * 1%) calc((3 + var(--rang) * 2.12) * 1%) calc((-22 + var(--rang) * 2.75) * 1%); border: 1px solid rgb(250 252 239 / 82%); border-radius: 43% 54% 44% 52% / 43% 37% 56% 54%; transform: rotate(calc(var(--rang) * .8deg)); }
+.arbre-principal { position: absolute; width: 59%; height: auto; top: 50%; left: 50%; transform: translate(-50%, -50%); mix-blend-mode: multiply; }
+.decouvrir { background: var(--sauge); padding-block: clamp(2.2rem, 5vw, 4.2rem); border-radius: 48% 52% 0 0 / 1rem 1.25rem 0 0; }
+.decouvrir-grille { display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: .5rem clamp(1.8rem, 5vw, 5rem); }
+.decouvrir p { font-size: 1.08rem; margin-bottom: .75rem; }
+
+.page-interieure { padding-block: clamp(3rem, 7vw, 5.6rem); }
+.page-interieure h1 { font-size: clamp(2.6rem, 5.5vw, 4.65rem); }
+.introduction-page .introduction { max-width: 60ch; }
+.prestations { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 clamp(1.2rem, 3vw, 2.4rem); margin-block: clamp(1.8rem, 4vw, 3.2rem) 1.4rem; }
+.prestation { border-top: 1px solid var(--ligne); padding-block: 1.2rem .55rem; }
+.prestation h2, .titre-parcours { font-size: clamp(1.45rem, 2.6vw, 2rem); }
+.note { max-width: 68ch; padding-block: .8rem; color: var(--secondaire); }
+.portrait { display: block; width: 100%; max-height: 35rem; object-fit: cover; border-radius: 46% 44% 48% 42% / 44% 43% 49% 46%; }
+.contact { padding-block: clamp(2.4rem, 5vw, 4rem); background: #f0f4ec; }
+.contact-interieur { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.25rem; }
+.contact address { font-style: normal; line-height: 1.55; }
+.pied { border-top: 1px solid var(--ligne); padding-block: .5rem; }
+
+@media (max-width: 850px) {
+  .en-tete-interieur, .pied-interieur { gap: .65rem 1rem; }
+  .en-tete-interieur nav, .pied-interieur nav { gap: .25rem .9rem; }
+  .header-contact { display: none; }
+  .prestations { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .en-tete-interieur, .pied-interieur { align-items: flex-start; flex-direction: column; gap: .35rem; padding-block: .75rem; }
+  .hero-grille, .interieur-grille, .decouvrir-grille, .prestations { grid-template-columns: 1fr; }
+  .hero-texte { padding-block: 0; }
+  .ondes, .portrait { max-width: 360px; justify-self: center; }
+  .decouvrir h2 { margin-bottom: .35rem; }
+}
