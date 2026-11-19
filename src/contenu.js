@@ -36,11 +36,14 @@ export const contenu = {
     ],
   },
   aPropos: {
-    introduction: 'Je m’intéresse à l’hypnose depuis l’âge de 15 ans. Cette curiosité est devenue une vocation au fil de mes études et de ma formation.',
-    parcours: [
-      'J’ai obtenu un diplôme en psychologie à la faculté de Samara, puis j’ai poursuivi mon parcours avec une formation diplômante en hypnose ericksonienne.',
-      'Dans mon cabinet, j’accorde une place importante à l’écoute sans jugement. J’adapte les techniques d’hypnose à votre personnalité et à ce que vous souhaitez aborder.',
-    ],
+    introduction: 'Je m’intéresse à l’hypnose depuis l’âge de 15 ans. Au fil de mes études et de ma formation, cette curiosité a pris une place de plus en plus importante dans mon parcours.',
+    parcours: {
+      diplomes: 'Après avoir obtenu mon diplôme en psychologie à la faculté de Samara, j’ai voulu approfondir ma pratique de l’hypnose. J’ai suivi une formation diplômante en hypnose ericksonienne. L’accompagnement est aujourd’hui devenu ma vocation.',
+      pratique: [
+        'Avant de vous proposer une technique, je prends le temps de comprendre ce que vous traversez. Vous pouvez parler de ce qui vous amène avec vos propres mots, dans un espace d’écoute sans jugement.',
+        'Je choisis les techniques d’hypnose en fonction de votre personnalité et de ce que vous souhaitez aborder. Au fil des échanges, vous pouvez me dire ce qui vous convient pour que nous ajustions ensemble la façon de travailler.',
+      ],
+    },
   },
 };
 

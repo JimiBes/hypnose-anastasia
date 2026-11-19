@@ -19,18 +19,16 @@ function Marque() {
   );
 }
 
-function LiensNavigation() {
-  return navigation.map(({ id, href, label }) => (
-    <a key={id} href={href} aria-current={page === id ? 'page' : undefined}>{label}</a>
-  ));
-}
-
 function EnTete() {
   return (
     <header className="en-tete">
       <div className="largeur en-tete-interieur">
         <Marque />
-        <nav aria-label="Navigation principale"><LiensNavigation /></nav>
+        <nav aria-label="Navigation principale">
+          {navigation.map(({ id, href, label }) => (
+            <a key={id} href={href} aria-current={page === id ? 'page' : undefined}>{label}</a>
+          ))}
+        </nav>
         <a className="bouton bouton-secondaire header-contact" href="#rendez-vous">Rendez-vous</a>
       </div>
     </header>
@@ -59,8 +57,7 @@ function Accueil() {
       <section className="hero">
         <div className="largeur hero-grille">
           <div className="hero-texte">
-            <p className="surtitre">{praticienne.activite} à {praticienne.ville}</p>
-            <h1>{titre[0]}<br /><em>{titre[1]}</em></h1>
+            <h1>{titre[0]}<br /><span className="accent-titre">{titre[1]}</span></h1>
             <p className="introduction">{introduction}</p>
             <div className="actions">
               <a className="bouton" href="#rendez-vous">Prendre rendez-vous</a>
@@ -122,7 +119,7 @@ function Accompagnements() {
         <p className="note">L’hypnose peut s’inscrire en complément d’un suivi médical. Un professionnel de santé reste votre interlocuteur pour tout symptôme persistant.</p>
       </section>
       <section className="stress" aria-labelledby="titre-stress">
-        <div className="largeur grille-stress">
+        <div className="largeur grille-texte">
           <div>
             <h2 id="titre-stress">Quand le stress s’installe au quotidien</h2>
             {stress.map((paragraphe) => <p key={paragraphe}>{paragraphe}</p>)}
@@ -139,17 +136,39 @@ function APropos() {
   const { photo } = praticienne;
 
   return (
-    <section className="page-interieure page-parcours">
-      <div className="largeur interieur-grille">
-        <div>
-          <h1>Je suis <em>{praticienne.nom}.</em></h1>
-          <p className="introduction">{introduction}</p>
-          <h2 className="titre-parcours">Mon parcours et ma pratique</h2>
-          {parcours.map((paragraphe) => <p key={paragraphe}>{paragraphe}</p>)}
+    <>
+      <section className="page-interieure page-parcours">
+        <div className="largeur interieur-grille">
+          <div>
+            <h1>Mon <span className="accent-titre">parcours</span></h1>
+            <p className="introduction">{introduction}</p>
+            <p>{parcours.diplomes}</p>
+          </div>
+          <img className="portrait" {...photo} />
         </div>
-        <img className="portrait" {...photo} />
-      </div>
-    </section>
+      </section>
+      <section className="approche" aria-labelledby="titre-pratique">
+        <div className="largeur grille-texte">
+          <h2 id="titre-pratique">Ma façon de travailler</h2>
+          <div>
+            {parcours.pratique.map((paragraphe) => <p key={paragraphe}>{paragraphe}</p>)}
+          </div>
+        </div>
+      </section>
+      <section className="cabinet" aria-labelledby="titre-cabinet">
+        <div className="largeur cabinet-grille">
+          <h2 id="titre-cabinet">Le cabinet à Montauban</h2>
+          <img
+            className="photo-cabinet"
+            src="/images/cabinet-anastasia.webp"
+            alt="Intérieur du cabinet, avec un canapé gris, une table basse et des plantes près de la fenêtre"
+            width="1400"
+            height="1050"
+            loading="lazy"
+          />
+        </div>
+      </section>
+    </>
   );
 }
 
@@ -166,10 +185,7 @@ function Site() {
         <RendezVous />
       </main>
       <footer className="pied">
-        <div className="largeur pied-interieur">
-          <a className="signature-pied" href="/">{praticienne.nom}</a>
-          <nav aria-label="Navigation de pied de page"><LiensNavigation /></nav>
-        </div>
+        <div className="largeur">{praticienne.nom}</div>
       </footer>
     </>
   );
