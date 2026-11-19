@@ -2,7 +2,12 @@ export const praticienne = {
   nom: 'Anastasia Kothé',
   activite: 'Hypnothérapeute',
   ville: 'Montauban',
-  photo: null,
+  photo: {
+    src: '/images/anastasia-kothe.webp',
+    alt: 'Portrait d’Anastasia Kothé, assise sur un canapé',
+    width: 768,
+    height: 1024,
+  },
   adresse: '491, chemin des Gascous',
   commune: '82000 Montauban',
   telephone: '06 98 92 66 91',

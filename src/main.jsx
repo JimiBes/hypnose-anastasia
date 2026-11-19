@@ -80,7 +80,17 @@ function Accueil() {
               <a className="lien-texte" href="/accompagnements/">Voir les accompagnements</a>
             </div>
           </div>
-          <Ondes arbre />
+          <div className="visuel-accueil">
+            <img
+              className="photo-sentier"
+              src="/images/sentier-boise.webp"
+              alt=""
+              width="1200"
+              height="900"
+              fetchPriority="high"
+            />
+            <div className="embleme"><Ondes arbre /></div>
+          </div>
         </div>
       </section>
       <section className="decouvrir" aria-labelledby="titre-decouvrir">
@@ -117,9 +127,12 @@ function Accompagnements() {
         <p className="note">L’hypnose peut s’inscrire en complément d’un suivi médical. Un professionnel de santé reste votre interlocuteur pour tout symptôme persistant.</p>
       </section>
       <section className="decouvrir" aria-labelledby="titre-stress">
-        <div className="largeur decouvrir-grille">
-          <h2 id="titre-stress">Quand le stress s’installe au quotidien</h2>
-          <div>{stress.map((paragraphe) => <p key={paragraphe}>{paragraphe}</p>)}</div>
+        <div className="largeur grille-stress">
+          <div>
+            <h2 id="titre-stress">Quand le stress s’installe au quotidien</h2>
+            {stress.map((paragraphe) => <p key={paragraphe}>{paragraphe}</p>)}
+          </div>
+          <img className="photo-cascade" src="/images/cascade.webp" alt="" width="675" height="900" loading="lazy" />
         </div>
       </section>
     </>
@@ -139,7 +152,11 @@ function APropos() {
           <h2 className="titre-parcours">Mon parcours et ma pratique</h2>
           {parcours.map((paragraphe) => <p key={paragraphe}>{paragraphe}</p>)}
         </div>
-        {photo ? <img className="portrait" src={photo.src} alt={photo.alt} /> : <Ondes arbre />}
+        {photo ? (
+          <div className="cadre-portrait">
+            <img className="portrait" {...photo} />
+          </div>
+        ) : <Ondes arbre />}
       </div>
     </section>
   );

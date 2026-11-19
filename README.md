@@ -17,7 +17,6 @@ npm run build
 ## Compléter avant la mise en ligne
 
 - Les informations modifiables sont dans `src/contenu.js`. Le téléphone et l’adresse viennent de la carte de visite. Ajouter les éventuels tarifs, la durée et le déroulement des séances après validation.
-- Ajouter le portrait dans `public/images` et renseigner `praticienne.photo` avec `{ src: '/images/anastasia.webp', alt: 'Portrait d’Anastasia Kothé' }` en adaptant le nom du fichier et le texte à la photo réelle. Ajouter les photos du cabinet dès leur réception.
 - Vérifier l’intitulé de l’attestation ENIC-NARIC sur le justificatif avant de l’ajouter au parcours.
 - Demander le SIRET ou la dénomination d’immatriculation, puis vérifier les renseignements de l’entreprise avant de rédiger et de relier les mentions légales.
 - Relire les trois pages avec la cliente, confirmer le nom de domaine, puis retirer les balises `noindex` au moment de la mise en ligne officielle.

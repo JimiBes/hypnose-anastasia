@@ -54,6 +54,34 @@ h2 { font-size: clamp(2rem, 3.8vw, 3.5rem); letter-spacing: -.037em; }
 .relief { position: absolute; inset: 0; transform: rotate(-23deg) translate(5%, 3%); }
 .relief span { position: absolute; inset: calc((-13 + var(--rang) * 2.35) * 1%) calc((-23 + var(--rang) * 3.24) * 1%) calc((3 + var(--rang) * 2.12) * 1%) calc((-22 + var(--rang) * 2.75) * 1%); border: 1px solid rgb(250 252 239 / 82%); border-radius: 43% 54% 44% 52% / 43% 37% 56% 54%; transform: rotate(calc(var(--rang) * .8deg)); }
 .arbre-principal { position: absolute; width: 59%; height: auto; top: 50%; left: 50%; transform: translate(-50%, -50%); mix-blend-mode: multiply; }
+.visuel-accueil { position: relative; isolation: isolate; width: 100%; padding: .3rem 2.1rem 1.6rem 0; }
+.visuel-accueil::before {
+  content: "";
+  position: absolute;
+  inset: 1.7rem 1rem .8rem .1rem;
+  border: 1px solid #a8b9a3;
+  border-radius: 43% 52% 42% 48% / 52% 48% 48% 43%;
+  transform: rotate(6deg);
+  z-index: -1;
+}
+.photo-sentier {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.13;
+  object-fit: cover;
+  object-position: 50% 65%;
+  border-radius: 44% 51% 39% 47% / 46% 51% 45% 51%;
+}
+.embleme {
+  position: absolute;
+  width: clamp(5.3rem, 11vw, 9.3rem);
+  right: .25rem;
+  bottom: .4rem;
+  padding: .32rem;
+  border-radius: 52% 47% 50% 47%;
+  background: var(--papier);
+}
 .decouvrir { background: var(--sauge); padding-block: clamp(2.2rem, 5vw, 4.2rem); border-radius: 48% 52% 0 0 / 1rem 1.25rem 0 0; }
 .decouvrir-grille { display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: .5rem clamp(1.8rem, 5vw, 5rem); }
 .decouvrir p { font-size: 1.08rem; margin-bottom: .75rem; }
@@ -65,7 +93,47 @@ h2 { font-size: clamp(2rem, 3.8vw, 3.5rem); letter-spacing: -.037em; }
 .prestation { border-top: 1px solid var(--ligne); padding-block: 1.2rem .55rem; }
 .prestation h2, .titre-parcours { font-size: clamp(1.45rem, 2.6vw, 2rem); }
 .note { max-width: 68ch; padding-block: .8rem; color: var(--secondaire); }
-.portrait { display: block; width: 100%; max-height: 35rem; object-fit: cover; border-radius: 46% 44% 48% 42% / 44% 43% 49% 46%; }
+.grille-stress {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  align-items: center;
+  gap: clamp(1.6rem, 7vw, 6rem);
+}
+.photo-cascade {
+  display: block;
+  width: 100%;
+  max-width: 365px;
+  height: auto;
+  aspect-ratio: 1.42;
+  object-fit: cover;
+  object-position: 50% 57%;
+  border-radius: 55% 46% 53% 44% / 58% 46% 54% 42%;
+  justify-self: center;
+}
+.cadre-portrait {
+  position: relative;
+  isolation: isolate;
+  width: min(100%, 430px);
+  justify-self: center;
+  padding: 0 1.05rem 1.15rem 0;
+}
+.cadre-portrait::before {
+  content: "";
+  position: absolute;
+  inset: .85rem 0 0 .95rem;
+  background: #dbe5d5;
+  border-radius: 51% 45% 30% 39% / 38% 36% 18% 26%;
+  z-index: -1;
+}
+.portrait {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 0.92;
+  object-fit: cover;
+  object-position: 58% 65%;
+  border-radius: 48% 49% 32% 38% / 37% 40% 23% 26%;
+}
 .contact { padding-block: clamp(2.4rem, 5vw, 4rem); background: #f0f4ec; }
 .contact-interieur { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.25rem; }
 .contact address { font-style: normal; line-height: 1.55; }
@@ -80,8 +148,9 @@ h2 { font-size: clamp(2rem, 3.8vw, 3.5rem); letter-spacing: -.037em; }
 
 @media (max-width: 640px) {
   .en-tete-interieur, .pied-interieur { align-items: flex-start; flex-direction: column; gap: .35rem; padding-block: .75rem; }
-  .hero-grille, .interieur-grille, .decouvrir-grille, .prestations { grid-template-columns: 1fr; }
+  .hero-grille, .interieur-grille, .decouvrir-grille, .prestations, .grille-stress { grid-template-columns: 1fr; }
   .hero-texte { padding-block: 0; }
-  .ondes, .portrait { max-width: 360px; justify-self: center; }
+  .visuel-accueil, .cadre-portrait, .photo-cascade, .interieur-grille > .ondes { max-width: 360px; justify-self: center; }
+  .visuel-accueil { padding-right: 1.3rem; }
   .decouvrir h2 { margin-bottom: .35rem; }
 }
